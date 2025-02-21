@@ -1,8 +1,17 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router";
+import Home from "./Home";
+import About from "./About";
+
 function App() {
   return (
     <>
-      <h1>Hello</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
