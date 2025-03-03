@@ -1,6 +1,7 @@
 import React from "react";
 
 const ProductCard = ({ data }) => {
+
   return (
     <div>
       <div className="p-5  md:flex md:justify-between md:px-10 md:py-6">
@@ -34,13 +35,13 @@ const ProductCard = ({ data }) => {
 
           <ul className="md:text-gray-700 md:list-disc">
             {data?.details?.map((list) => (
-              <li key={list.id}>{list}</li>
+              <li key={list}>{list}</li>
             ))}
           </ul>
         </div>
         {/* price and discount of mobile */}
         <div>
-          <h2 className="font-bold text-2xl">$9,999</h2>
+          <h2 className="font-bold text-2xl text-amber-400">${data.price}</h2>
           <span className="line-through text-gray-500">$13,999</span>{" "}
           <span className="text-green-600 font-semibold">28% off</span>
           <p>
