@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./component/ProductCard";
 import TabFilter from "./component/TabFilter";
+import CustomerRating from "./component/CustomerRating";
 
 const Product = () => {
   const [productDataList, setProductDataList] = useState();
-  const [oldData, setOldData] = useState();
+  const [oldData, setOldData] = useState([]);
 
   useEffect(() => {
     productData();
@@ -27,6 +28,18 @@ const Product = () => {
     }
   };
 
+  const customerRatingHandling = (list) => {
+    let storeList = [];
+
+    for (let i = 0; i < oldData?.length; i++) {
+      if (list?.includes(oldData[i].rating)) {
+        storeList.push(oldData[i]);
+      }
+    }
+    console.log(storeList);
+    setProductDataList(storeList);
+  };
+
   return (
     <>
       <TabFilter tabHandler={tabHandler} />
@@ -35,6 +48,7 @@ const Product = () => {
         <div className="hidden md:h-100 md:border-3 md:w-75 md:px-5 md:block">
           <div>
             <h2 className="font-bold text-xl">Filters</h2>
+            <CustomerRating customerRatingHandling={customerRatingHandling} />
           </div>
         </div>
 

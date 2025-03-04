@@ -1,7 +1,6 @@
 import React from "react";
 
 const ProductCard = ({ data }) => {
-
   return (
     <div>
       <div className="p-5  md:flex md:justify-between md:px-10 md:py-6">
@@ -29,7 +28,7 @@ const ProductCard = ({ data }) => {
               3<span className="text-xs"> ❤</span>{" "}
             </span>{" "}
             <span className="text-gray-400 font-semibold">
-              3 Rating & 0 Reviews
+              {data.rating} Rating & 0 Reviews
             </span>
           </div>
 
