@@ -9,11 +9,11 @@ const ProductCard = ({ data }) => {
           <img
             src={data.image}
             alt="mobile Image"
-            className="mr-auto ml-auto md:mr-0 md:ml-0"
+            className="mr-auto ml-auto md:mr-0 md:ml-0  md:h-52 md:w-36 md:bg-cover"
           />
           <div>
             <input type="checkbox" />{" "}
-            <span className="text-lg md:text-sm md:font-bold md:text-gray-500">
+            <span className="text-lg md:text-sm md:font-bold md:text-gray-500 ">
               Add To Compare
             </span>
           </div>
