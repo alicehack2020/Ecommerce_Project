@@ -37,3 +37,7 @@
 # Start the db.json server
 
 - npx json-server db.json
+
+- npm i react-router-dom
+
+# Tailwind CSS IntelliSense install in VS Code
