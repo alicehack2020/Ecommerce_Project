@@ -17,12 +17,12 @@ const TabFilter = ({ tabHandler }) => {
     {
       id: 2,
       value: "lowToHigh",
-      label: " Price -- Low to High",
+      label: " Price - Low to High",
     },
     {
       id: 3,
       value: "highToLow",
-      label: " Price -- High to Low",
+      label: " Price - High to Low",
     },
 
     // {
@@ -42,7 +42,7 @@ const TabFilter = ({ tabHandler }) => {
             tab == item.value
               ? "text-blue-500 border-b border-solid font-semibold "
               : ""
-          } font-semibold`}
+          } font-semibold  px-3  py-1 rounded-sm text-amber-500`}
         >
           {item.label}
         </button>
