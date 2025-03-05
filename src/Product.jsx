@@ -42,23 +42,29 @@ const Product = () => {
 
   return (
     <>
-      <TabFilter tabHandler={tabHandler} />
-      <div className="md:px-5 md:flex md:gap-3">
-        {/* ---------------Left Side---------------------- */}
-        <div className="hidden md:h-100 md:border-3 md:w-75 md:px-5 md:block">
-          <div>
-            <h2 className="font-bold text-xl">Filters</h2>
-            <CustomerRating customerRatingHandling={customerRatingHandling} />
+      <div className="md:border">
+        {/* --------------------Top Side------------------- */}
+        <TabFilter tabHandler={tabHandler} />
+        <div className="md:px-5 md:flex md:gap-3">
+          {/* ---------------Left Side---------------------- */}
+          <div className="hidden md:h-60 md:border-1 md:w-75 md:px-5 md:block">
+            <div>
+              <h2 className="font-bold text-xl">Filters</h2>
+              <CustomerRating customerRatingHandling={customerRatingHandling} />
+            </div>
+          </div>
+
+          {/* -----------------------Right Side---------------------- */}
+
+          <div className="grid grid-cols-1 border-1">
+            {productDataList?.map((data) => (
+              <ProductCard key={data.id} data={data} />
+            ))}
           </div>
         </div>
 
-        {/* -----------------------Right Side---------------------- */}
-
-        <div className="grid grid-cols-1">
-          {productDataList?.map((data) => (
-            <ProductCard key={data.id} data={data} />
-          ))}
-        </div>
+        {/* -----------------------Buttom----------- */}
+        <div className="w-screen h-10 bg-amber-300"></div>
       </div>
     </>
   );
