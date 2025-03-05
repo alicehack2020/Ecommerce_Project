@@ -32,6 +32,7 @@
 # Setup Router
 
 - npm i react-router
+
 - npm i react-router-dom
 
 # Tailwind CSS IntelliSense install in VS Code
