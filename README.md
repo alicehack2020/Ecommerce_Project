@@ -32,6 +32,11 @@
 # Setup Router
 
 - npm i react-router
+- npm i react-router-dom
+
+# Start the db.json server
+
+- npx json-server db.json
 
 - npm i react-router-dom
 
