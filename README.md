@@ -41,3 +41,5 @@
 - npm i react-router-dom
 
 # Tailwind CSS IntelliSense install in VS Code
+
+# npm run dev -- --host
