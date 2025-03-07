@@ -1,9 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
 const ProductCard = ({ data }) => {
+  const navigate = useNavigate();
+
+  const productHandler = () => {
+    navigate(`/detailpage/${data.id}`);
+  };
+
   return (
-    <div>
-      <div className="p-5 md:flex md:gap-3 md:justify-between md:px-10 md:py-6 md:mb-3">
+    //main container
+    <div onClick={productHandler}>
+      <div className="p-5 md:flex md:gap-3 md:justify-between md:px-10 md:py-6 md:mb-3 cursor-pointer">
         {/* -----------------------mobile image---------------------Left Side */}
         <div className="md:border">
           <div className="md:w-40 md:h-72">

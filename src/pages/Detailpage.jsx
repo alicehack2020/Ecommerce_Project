@@ -1,7 +1,26 @@
-import React from "react";
-import DetailPageImages from "../component/DetailPageImages";
+import React, { useEffect, useState } from "react";
+import DetailPageImages from "../component/product/DetailPageImages";
+import { useParams } from "react-router";
 
 const Detailpage = () => {
+  const [productDetail, setProductDetail] = useState();
+
+  console.log("productDetail=======", productDetail?.price);
+
+  const { id } = useParams();
+  // console.log(id);
+
+  useEffect(() => {
+    fetchFunction();
+  }, []);
+
+  const fetchFunction = async () => {
+    const fetchData = await fetch(`http://localhost:3000/product/${id}`);
+    const result = await fetchData.json();
+    setProductDetail(result);
+    // console.log("result===", result);
+  };
+
   return (
     <>
       {/* ----------main container-------- */}
@@ -16,13 +35,15 @@ const Detailpage = () => {
             <div className="md:flex w-full">
               {/* ----------------small verticals mobile images------------- */}
               <div className="hidden md:block">
-                <DetailPageImages />
+                <DetailPageImages
+                  productDetailImageList={productDetail?.imagesList}
+                />
               </div>
 
               {/* ------------Big  mobile Image----------- */}
               <div className="md:w-full h-auto flex justify-center">
                 <img
-                  src="https://rukminim2.flixcart.com/image/416/416/k1fbmvk0/mobile/4/f/f/mi-redmi-8-mzb8251in-original-imafhyacvweh9gxf.jpeg"
+                  src={productDetail?.image}
                   alt=""
                   className="w-auto h-auto py-3"
                 />
@@ -50,18 +71,19 @@ const Detailpage = () => {
           <div className=" w-full md:w-[60%] h-auto px-3">
             {/* empty Home > Mobile etc*/}
             <h3 className="text-xl text-gray-600 pb-1">
-              Mi 11 Lite (Jazz Blue, 128 GB) (8 GB RAM)
+              {productDetail?.productName}
             </h3>
             <div className="pb-5">
               <span className="bg-green-500 px-1 border text-white">
                 4.2 <span className="text-xs">❤</span>
               </span>
               <span className="text-gray-500 pl-2 font-semibold">
-                6,441 Rating & 643 Reviews
+                {productDetail?.rating}Rating & 643 Reviews
               </span>
             </div>
             <h1 className="font-bold text-2xl">
-              <span>&#8377;</span>475/month
+              <span>&#8377;</span>
+              {productDetail?.price}/month
             </h1>
             <p className="pb-4">
               36 months EMI Plan with BOBCARD{" "}
@@ -80,11 +102,9 @@ const Detailpage = () => {
             {/* Highlights */}
             <div>
               <ul className="text-gray-700">
-                <li>8 GB RAM | 128 GB ROM | Expandable Upto 512 GB</li>
-                <li>16.64 cm (6.55 inch) Full HD+ Display</li>
-                <li>64MP + 8MP + 5MP | 16MP Front Camera</li>
-                <li>4250 mAh Li-Polymer Battery</li>
-                <li>Qualcomm Snapdragon 732G Processor</li>
+                {productDetail?.details.map((detail) => (
+                  <li key={detail}>{detail}</li>
+                ))}
               </ul>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "./component/ProductCard";
-import TabFilter from "./component/TabFilter";
-import CustomerRating from "./component/CustomerRating";
+import ProductCard from "./component/product/ProductCard";
+import TabFilter from "./component/product/TabFilter";
+import CustomerRating from "./component/product/CustomerRating";
 
 const Product = () => {
   const [productDataList, setProductDataList] = useState();
@@ -54,7 +54,7 @@ const Product = () => {
             </div>
           </div>
 
-          {/* -----------------------Right Side---------------------- */}
+          {/* ----------------------Right Side---------------------- */}
 
           <div className="grid grid-cols-1 border-1">
             {productDataList?.map((data) => (
