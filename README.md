@@ -43,3 +43,11 @@
 # Tailwind CSS IntelliSense install in VS Code
 
 # npm run dev -- --host
+
+# Command for Start the react server
+
+- npm run dev (vite)
+- npm run start (react)
+- npx json-server db.json (start the json server)
+
+# &#8377; Rupess Ucode
