@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DetailPageImages from "../component/product/DetailPageImages";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import { Context } from "../App";
 
 const Detailpage = () => {
   const [productDetail, setProductDetail] = useState();
 
-  console.log("productDetail=======", productDetail?.price);
+  const { addHandler, data } = useContext(Context);
+
+  // console.log("productDetail=======", productDetail?.price);
 
   const { id } = useParams();
   // console.log(id);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchFunction();
@@ -18,7 +23,12 @@ const Detailpage = () => {
     const fetchData = await fetch(`http://localhost:3000/product/${id}`);
     const result = await fetchData.json();
     setProductDetail(result);
+
     // console.log("result===", result);
+  };
+
+  const checkoutHandler = () => {
+    navigate("/checkoutpage");
   };
 
   return (
@@ -59,7 +69,12 @@ const Detailpage = () => {
                 <button>❤</button>
               </div>
               <div className="border text-xs md:text-lg w-full p-2 md:p-3 md:w-[50%] text-center cursor-pointer flex justify-center hover:bg-amber-500">
-                <button className="cursor-pointer">PAY WITH EMI</button>
+                <button
+                  className="cursor-pointer"
+                  onClick={() => addHandler(productDetail)}
+                >
+                  ADD TO CARD
+                </button>
               </div>
               <div className="border p-3 text-xs md:text-lg md:p-3 w-full md:w-[50%] text-center  cursor-pointer flex justify-center hover:bg-amber-500">
                 <button className="cursor-pointer">BUY NOW</button>
@@ -102,13 +117,21 @@ const Detailpage = () => {
             {/* Highlights */}
             <div>
               <ul className="text-gray-700">
-                {productDetail?.details.map((detail) => (
+                {productDetail?.details?.map((detail) => (
                   <li key={detail}>{detail}</li>
                 ))}
               </ul>
             </div>
+
+            <button
+              onClick={checkoutHandler}
+              className="border px-3 py-1 cursor-pointer"
+            >
+              Checkout
+            </button>
           </div>
         </div>
+        <h2>{data?.length}</h2>
       </div>
     </>
   );

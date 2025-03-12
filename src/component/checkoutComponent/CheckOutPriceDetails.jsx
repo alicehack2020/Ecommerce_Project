@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from "../../App";
+import { data } from "react-router";
 
 const CheckOutPriceDetails = () => {
+  const [checkoutState, setCheckoutState] = useState();
+
+  const { data } = useContext(Context);
+
+  // ===================================================================
+  // console.log("data :", data[0].price);
+  // console.log("data :", data[1].price);
+
+  // const value1 = Number(data[0].price);
+  // const value2 = Number(data[1].price);
+
+  //let store = value1 + value2; //5000 + 4000
+  //console.log(store); //9000
+
+  //===================================================================
+
+  useEffect(() => {
+    let sum = 0;
+    for (let i = 0; i < data?.length; i++) {
+      sum = sum + Number(data[i]?.price * data[i]?.quntity);
+    }
+
+    setCheckoutState(sum);
+
+    console.log(sum);
+  }, [data]);
+
   return (
     // main container
     <>
@@ -45,7 +74,7 @@ const CheckOutPriceDetails = () => {
           </div>
           <div className="font-bold flex justify-between py-3 border border-y-gray-200 border-l-0 border-r-0  text-sm  md:text-[16px] text-gray-500">
             <p>Total Amount</p>
-            <p>33,212</p>
+            <p>{checkoutState}</p>
           </div>
         </div>
       </div>
