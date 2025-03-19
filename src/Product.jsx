@@ -42,12 +42,10 @@ const Product = () => {
 
   return (
     <>
-      <div className="md:border">
-        {/* --------------------Top Side------------------- */}
-        <TabFilter tabHandler={tabHandler} />
-        <div className="md:px-5 md:flex md:gap-3">
+      <div className="">
+        <div className="md:px-5 md:flex md:gap-3 md:bg-gray-100">
           {/* ---------------Left Side---------------------- */}
-          <div className="hidden md:h-60 md:border-1 md:w-75 md:px-5 md:block">
+          <div className="hidden md:h-60 md:w-75 md:px-5 md:block md:bg-white">
             <div>
               <h2 className="font-bold text-xl">Filters</h2>
               <CustomerRating customerRatingHandling={customerRatingHandling} />
@@ -55,11 +53,16 @@ const Product = () => {
           </div>
 
           {/* ----------------------Right Side---------------------- */}
-
-          <div className="grid grid-cols-1 border-1">
-            {productDataList?.map((data) => (
-              <ProductCard key={data.id} data={data} />
-            ))}
+          <div className="bg-white">
+            {/* ----filters---- */}
+            <div>
+              <TabFilter tabHandler={tabHandler} />
+            </div>
+            <div className="grid grid-cols-1">
+              {productDataList?.map((data) => (
+                <ProductCard key={data.id} data={data} />
+              ))}
+            </div>
           </div>
         </div>
 

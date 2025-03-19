@@ -1,14 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DetailPageImages from "../component/product/DetailPageImages";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import { Context } from "../App";
+import Cart from ".././assets/images/cart.png";
 
 const Detailpage = () => {
   const [productDetail, setProductDetail] = useState();
 
-  console.log("productDetail=======", productDetail?.price);
+  const { addHandler, data } = useContext(Context);
+
+  // console.log("productDetail=======", productDetail?.price);
 
   const { id } = useParams();
   // console.log(id);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchFunction();
@@ -18,7 +24,12 @@ const Detailpage = () => {
     const fetchData = await fetch(`http://localhost:3000/product/${id}`);
     const result = await fetchData.json();
     setProductDetail(result);
+
     // console.log("result===", result);
+  };
+
+  const checkoutHandler = () => {
+    navigate("/checkoutpage");
   };
 
   return (
@@ -31,7 +42,7 @@ const Detailpage = () => {
         {/* left and right parent */}
         <div className="md:flex">
           {/* left side */}
-          <div className="border border-gray-900 md:w-[40%]">
+          <div className=" md:w-[40%]">
             <div className="md:flex w-full">
               {/* ----------------small verticals mobile images------------- */}
               <div className="hidden md:block">
@@ -55,15 +66,28 @@ const Detailpage = () => {
 
             {/* payment and buy now */}
             <div className="md:w-full h-max md:text-md  md:h-14 flex gap-0.5 md:gap-1.5 pb-5 md:pb-0">
-              <div className="border p-2 md:p-3 w-[40%] md:w-[20%] cursor-pointer hover:bg-amber-500 flex justify-center">
-                <button>❤</button>
-              </div>
-              <div className="border text-xs md:text-lg w-full p-2 md:p-3 md:w-[50%] text-center cursor-pointer flex justify-center hover:bg-amber-500">
-                <button className="cursor-pointer">PAY WITH EMI</button>
-              </div>
-              <div className="border p-3 text-xs md:text-lg md:p-3 w-full md:w-[50%] text-center  cursor-pointer flex justify-center hover:bg-amber-500">
-                <button className="cursor-pointer">BUY NOW</button>
-              </div>
+              <button
+                onClick={() => addHandler(productDetail)}
+                className="  cursor-pointer p-2 md:p-3 w-[40%] md:w-[20%] - border border-gray-300 "
+              >
+                <div className="w-6 h-6 md:ml-auto md:mr-auto">
+                  <img src={Cart} alt="Cart Basket " />
+                </div>
+              </button>
+
+              <button className="text-xs md:text-lg w-full p-2 md:p-3 md:w-[50%] text-center cursor-pointer md:flex md:justify-center border border-gray-300">
+                PAY WITH EMI
+              </button>
+
+              <button
+                onClick={() => {
+                  addHandler(productDetail);
+                  navigate("/checkoutpage");
+                }}
+                className="cursor-pointer p-3 text-xs md:text-lg md:p-3 w-full md:w-[50%] text-center md:flex md:justify-center bg-amber-500"
+              >
+                BUY NOW
+              </button>
             </div>
           </div>
 
@@ -74,7 +98,7 @@ const Detailpage = () => {
               {productDetail?.productName}
             </h3>
             <div className="pb-5">
-              <span className="bg-green-500 px-1 border text-white">
+              <span className="bg-green-500 px-1  text-white">
                 4.2 <span className="text-xs">❤</span>
               </span>
               <span className="text-gray-500 pl-2 font-semibold">
@@ -102,13 +126,21 @@ const Detailpage = () => {
             {/* Highlights */}
             <div>
               <ul className="text-gray-700">
-                {productDetail?.details.map((detail) => (
+                {productDetail?.details?.map((detail) => (
                   <li key={detail}>{detail}</li>
                 ))}
               </ul>
             </div>
+
+            <button
+              onClick={checkoutHandler}
+              className=" px-3 py-1 cursor-pointer"
+            >
+              Checkout
+            </button>
           </div>
         </div>
+        <h2>{data?.length}</h2>
       </div>
     </>
   );

@@ -13,7 +13,7 @@ const ProductCard = ({ data }) => {
     <div onClick={productHandler}>
       <div className="p-5 md:flex md:gap-3 md:justify-between md:px-10 md:py-6 md:mb-3 cursor-pointer">
         {/* -----------------------mobile image---------------------Left Side */}
-        <div className="md:border">
+        <div className="">
           <div className="md:w-40 md:h-72">
             <img
               src={data.image}
@@ -29,7 +29,7 @@ const ProductCard = ({ data }) => {
           </div>
         </div>
         {/* ----------------------description of mobile-----------------------Center */}
-        <div className="md:pl-15 md:border">
+        <div className="md:pl-15">
           <h2 className="font-bold text-xl">
             SAMSUNG Galaxy F06 5G (Bahama Blue, 128 GB)
           </h2>
@@ -49,7 +49,7 @@ const ProductCard = ({ data }) => {
           </ul>
         </div>
         {/* ---------------------price and discount of mobile----------------------Right Side */}
-        <div className="md:border">
+        <div className="">
           <h2 className="font-bold text-2xl text-gray-600">${data.price}</h2>
           <span className="line-through text-gray-500">$13,999</span>{" "}
           <span className="text-green-600 font-semibold">28% off</span>
