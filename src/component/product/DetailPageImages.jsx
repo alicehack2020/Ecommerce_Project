@@ -11,7 +11,7 @@ const DetailPageImages = ({ productDetailImageList }) => {
             <img
               src={imaList}
               alt=""
-              className="border w-full object-cover py-2 px-1 "
+              className=" w-full object-cover py-2 px-1 "
             />
           </div>
         ))}

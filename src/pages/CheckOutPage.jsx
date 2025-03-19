@@ -19,6 +19,13 @@ const CheckOutPage = () => {
         {data?.map((item) => (
           <CheckOutInfo key={item?.id} item={item} className="bg-blue-600" />
         ))}
+        {/* place order button */}
+
+        <div className="md:w-full flex justify-center">
+          <button className="text-xs md:text-[16px] w-[70%] font-semibold cursor-pointer  text-center   px-4 py-3 md:rounded-sm bg-amber-600 text-white mt-10">
+            PLACE ORDER
+          </button>
+        </div>
       </div>
 
       {/* right side */}

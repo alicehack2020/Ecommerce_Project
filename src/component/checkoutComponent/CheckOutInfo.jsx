@@ -100,12 +100,6 @@ const CheckOutInfo = ({ item }) => {
           <span className="text-green-500"> Free</span>
         </p>
       </div>
-      {/* place order button */}
-      <div className=" font-semibold cursor-pointer  text-center md:w-56 ml-auto mr-auto px-4 py-3 md:rounded-sm bg-amber-600 text-white mt-10">
-        <button className="text-xs md:text-[16px] cursor-pointer">
-          PLACE ORDER
-        </button>
-      </div>
     </div>
   );
 };

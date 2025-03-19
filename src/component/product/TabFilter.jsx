@@ -33,16 +33,16 @@ const TabFilter = ({ tabHandler }) => {
   ];
 
   return (
-    <div className="bg-gray-100 flex gap-3 pb-5">
+    <div className=" flex gap-3 pb-2">
       {list.map((item) => (
         <button
           key={item.id}
           onClick={() => handleTab(item.value)}
           className={`${
             tab == item.value
-              ? "text-blue-500 border-b border-solid font-semibold "
-              : ""
-          } font-semibold  px-3  py-1 rounded-sm text-amber-500`}
+              ? "text-blue-500 border-b border-solid font-semibold"
+              : "text-gray-500 "
+          } font-semibold  px-3  py-1`}
         >
           {item.label}
         </button>

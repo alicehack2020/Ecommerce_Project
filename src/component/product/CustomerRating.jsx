@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import downArrow from "../../assets/images/down-arrow.png";
+
 const CustomerRating = ({ customerRatingHandling }) => {
   const [storeCustomeValue, setStoreCustomeValue] = useState({
     check1: "",
@@ -23,14 +25,26 @@ const CustomerRating = ({ customerRatingHandling }) => {
   }, [storeCustomeValue]);
 
   return (
-    <div>
+    <>
       <div>
         <div
           onClick={() => setIsCustomeRating(!isCustomeRating)}
-          className="cursor-pointer bg-gray-500 text-white flex justify-between px-5 py-1"
+          className="cursor-pointer  text-white flex justify-between px- py-1"
         >
-          <div>CustomerRating</div>
-          <div>{isCustomeRating ? "+" : "-"}</div>
+          <div className="text-gray-600 font-semibold w-full">
+            <div className="flex justify-between items-center">
+              <div className="text-black font-semibold text-sm">
+                CUSTOMER RATINGS
+              </div>
+              <div className="w-5 h-5">
+                <img
+                  className={`${isCustomeRating ? "rotate-180" : ""}`}
+                  src={downArrow}
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
         </div>
         {isCustomeRating && (
           <div>
@@ -74,7 +88,7 @@ const CustomerRating = ({ customerRatingHandling }) => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
