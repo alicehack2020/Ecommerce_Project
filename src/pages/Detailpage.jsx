@@ -42,8 +42,8 @@ const Detailpage = () => {
         {/* left and right parent */}
         <div className="md:flex">
           {/* left side */}
-          <div className=" md:w-[40%]">
-            <div className="md:flex w-full">
+          <div className="md:w-[40%]">
+            <div className="w-full md:flex">
               {/* ----------------small verticals mobile images------------- */}
               <div className="hidden md:block">
                 <DetailPageImages
@@ -52,11 +52,11 @@ const Detailpage = () => {
               </div>
 
               {/* ------------Big  mobile Image----------- */}
-              <div className="md:w-full h-auto flex justify-center">
+              <div className="flex h-auto justify-center md:w-full">
                 <img
                   src={productDetail?.image}
                   alt=""
-                  className="w-auto h-auto py-3"
+                  className="h-auto w-auto py-3"
                 />
               </div>
               <div className="block md:hidden">
@@ -65,17 +65,17 @@ const Detailpage = () => {
             </div>
 
             {/* payment and buy now */}
-            <div className="md:w-full h-max md:text-md  md:h-14 flex gap-0.5 md:gap-1.5 pb-5 md:pb-0">
+            <div className="flex h-max gap-0.5 md:gap-1.5 md:h-14 md:pb-0 md:text-md md:w-full pb-5">
               <button
                 onClick={() => addHandler(productDetail)}
-                className="  cursor-pointer p-2 md:p-3 w-[40%] md:w-[20%] - border border-gray-300 "
+                className="border border-gray-300 p-2 w-[40%] - cursor-pointer md:p-3 md:w-[20%]"
               >
-                <div className="w-6 h-6 md:ml-auto md:mr-auto">
+                <div className="h-6 w-6 md:ml-auto md:mr-auto">
                   <img src={Cart} alt="Cart Basket " />
                 </div>
               </button>
 
-              <button className="text-xs md:text-lg w-full p-2 md:p-3 md:w-[50%] text-center cursor-pointer md:flex md:justify-center border border-gray-300">
+              <button className="border border-gray-300 p-2 text-center text-xs w-full cursor-pointer md:flex md:justify-center md:p-3 md:text-lg md:w-[50%]">
                 PAY WITH EMI
               </button>
 
@@ -84,7 +84,7 @@ const Detailpage = () => {
                   addHandler(productDetail);
                   navigate("/checkoutpage");
                 }}
-                className="cursor-pointer p-3 text-xs md:text-lg md:p-3 w-full md:w-[50%] text-center md:flex md:justify-center bg-amber-500"
+                className="bg-amber-500 p-3 text-center text-xs w-full cursor-pointer md:flex md:justify-center md:p-3 md:text-lg md:w-[50%]"
               >
                 BUY NOW
               </button>
@@ -92,20 +92,20 @@ const Detailpage = () => {
           </div>
 
           {/* -----------right side (details about mobile)---------- */}
-          <div className=" w-full md:w-[60%] h-auto px-3">
+          <div className="h-auto w-full md:w-[60%] px-3">
             {/* empty Home > Mobile etc*/}
-            <h3 className="text-xl text-gray-600 pb-1">
+            <h3 className="text-gray-600 text-xl pb-1">
               {productDetail?.productName}
             </h3>
             <div className="pb-5">
-              <span className="bg-green-500 px-1  text-white">
+              <span className="bg-green-500 text-white px-1">
                 4.2 <span className="text-xs">❤</span>
               </span>
-              <span className="text-gray-500 pl-2 font-semibold">
+              <span className="text-gray-500 font-semibold pl-2">
                 {productDetail?.rating}Rating & 643 Reviews
               </span>
             </div>
-            <h1 className="font-bold text-2xl">
+            <h1 className="text-2xl font-bold">
               <span>&#8377;</span>
               {productDetail?.price}/month
             </h1>
@@ -113,12 +113,12 @@ const Detailpage = () => {
               36 months EMI Plan with BOBCARD{" "}
               <span className="text-blue-400 font-medium">Details</span>{" "}
             </p>
-            <p className="text-green-400 font-semibold text-sm">
+            <p className="text-green-400 text-sm font-semibold">
               Extra <span>&#8377;</span>1500 off
             </p>
             <p className="pb-2">
-              <span className="font-bold text-xl">&#8377; 13,490 </span>
-              <span className="text-sm line-through text-gray-500">
+              <span className="text-xl font-bold">&#8377; 13,490 </span>
+              <span className="text-gray-500 text-sm line-through">
                 &#8377; 25,999
               </span>
               <span className="text-green-400 font-semibold"> 48% off</span>
@@ -134,7 +134,7 @@ const Detailpage = () => {
 
             <button
               onClick={checkoutHandler}
-              className=" px-3 py-1 cursor-pointer"
+              className="cursor-pointer px-3 py-1"
             >
               Checkout
             </button>
