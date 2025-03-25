@@ -15,7 +15,7 @@ function App() {
   // global
   const [data, setData] = useState([]);
 
-  console.log("data : ", data);
+  // console.log("data : ", data);
 
   const deleteHandler = (id) => {
     // console.log("id : ", id);
