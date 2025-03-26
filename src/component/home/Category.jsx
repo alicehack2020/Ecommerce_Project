@@ -116,10 +116,10 @@ const CategoryComponent = () => {
 
   return (
     <div className="grid grid-cols-4 md:bg-white md:cursor-pointer md:flex md:justify-evenly md:mt-3 md:py-3 md:shadow-2xl md:w-full">
-      {catogoryList.map((list) => (
+      {catogoryList.map((list, index) => (
         // CagegoryCard
-        <div className="mx-1 my-1">
-          <CategoryCard key={list.id} list={list} />
+        <div key={index} className="mx-1 my-1">
+          <CategoryCard list={list} />
         </div>
       ))}
     </div>
