@@ -36,26 +36,26 @@ const Crousal = () => {
 
   return (
     <>
-      <div className="border relative">
+      <div className="relative">
         <img
           src={arrList[count]}
           alt=""
-          className="w-full h-36 md:h-60 object-fit-cover"
+          className="w-full h-36 md:h-auto object-cover "
         />
 
-        <div className="md:h-40 w-full flex justify-between">
-          <button
+        <div className="w-full flex justify-between">
+          <div
             onClick={incrementHandler}
             className="flex items-center justify-center bg-white  h-10 w-5 md:h-20 md:w-10 md:rounded-sm absolute top-14 md:left-0 md:top-24 cursor-pointer"
           >
             <img src={Decre} alt="" className="w-2 h-2 md:w-3" />
-          </button>
-          <button
+          </div>
+          <div
             onClick={decrementHandler}
             className="flex justify-center items-center cursor-pointer bg-white h-10 w-5 md:h-20 md:w-10 rounded-sm absolute top-14 right-0 md:right-0 md:top-24"
           >
             <img src={Incre} alt="" className="w-2 h-2 md:w-3" />
-          </button>
+          </div>
         </div>
       </div>
     </>
