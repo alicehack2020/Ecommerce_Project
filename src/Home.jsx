@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "./component/home/Navbar";
-import CategoryComponent from "./component/home/Category";
 import Crousal from "./component/home/Crousal";
 import CardOne from "./component/home/CardOne";
 import CardTwo from "./component/home/CardTwo";
 import SectionCardOne from "./component/home/SectionCardOne";
 import Img1 from "./assets/images/cardOne/img1.png";
 import SectionCardTwo from "./component/home/SectionCardTwo";
+import CategoryComponent from "./component/home/CategoryComponent";
 
 // const lists1 = [
 //   {

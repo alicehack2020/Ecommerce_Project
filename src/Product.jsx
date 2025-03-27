@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./component/product/ProductCard";
 import TabFilter from "./component/product/TabFilter";
 import CustomerRating from "./component/product/CustomerRating";
+import { useParams } from "react-router";
 
 const Product = () => {
   const [productDataList, setProductDataList] = useState();
@@ -11,8 +12,12 @@ const Product = () => {
     productData();
   }, []);
 
+  const { name } = useParams();
+
+  //print = mobile
+
   const productData = async () => {
-    const res = await fetch("http://localhost:3000/product");
+    const res = await fetch(`http://localhost:3000/${name}`);
     const result = await res.json();
     setProductDataList(result);
     setOldData(result);
@@ -36,7 +41,7 @@ const Product = () => {
         storeList.push(oldData[i]);
       }
     }
-    console.log(storeList);
+    // console.log(storeList);
     setProductDataList(storeList);
   };
 
