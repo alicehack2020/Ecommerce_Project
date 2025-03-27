@@ -1,12 +1,12 @@
 import React from "react";
 
-const CardOne = ({ cardOneListPro }) => {
+const CardOne = ({ cardOneListPro, type }) => {
   //   console.log("cardOneList : ", cardOneList.name);
 
   return (
     <>
       <div className="flex flex-col items-center px-10 py-4 cursor-pointer bg-white shadow-xl rounded-lg">
-        <div className="md:w-30 md:h-30 w-20 h-20">
+        <div className="md:w-25 md:h-25 w-20 h-20">
           <img
             src={cardOneListPro.image}
             alt=""
