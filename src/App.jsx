@@ -8,6 +8,7 @@ import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import Detailpage from "./pages/Detailpage";
 import CheckOutPage from "./pages/CheckOutPage";
+import AddressPage from "./pages/AddressPage";
 
 export const Context = createContext();
 
@@ -79,6 +80,7 @@ function App() {
             <Route path="/detailpage/:id" element={<Detailpage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/checkoutpage" element={<CheckOutPage />} />
+            <Route path="/address" element={<AddressPage />} />
           </Routes>
         </BrowserRouter>
       </Context.Provider>

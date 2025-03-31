@@ -21,6 +21,8 @@ const Registration = () => {
     selectOption: "",
   });
 
+  // console.log("inputValue", inputValue);
+
   const [errors, setErrors] = useState({});
 
   let navigate = useNavigate();
@@ -47,7 +49,7 @@ const Registration = () => {
   };
 
   const validateForm = (data) => {
-    console.log("data", data); //{ username: "", useremail: "", userpassword: "", gender: "", isTermSelected: false, selectOption: "" }
+    //console.log("data", data); //{ username: "", useremail: "", userpassword: "", gender: "", isTermSelected: false, selectOption: "" }
 
     if (!data.username) {
       errors.username = "Username is required";
@@ -85,9 +87,10 @@ const Registration = () => {
         body: JSON.stringify(inputValue),
       });
       const result = await response.json();
-      setInputValue(result); //data set in InputValue
+      console.log("result", result);
+
       toast.success("Registration Successfully..");
-      localStorage.setItem("userDetails", JSON.stringify(inputValue)); //store the "inputValue" state in localStorage
+      localStorage.setItem("userDetails", JSON.stringify(result)); //store the "inputValue" state in localStorage
       navigate("/"); //navigate to "home page"
     } else {
       // toast.error("Form submission failed due to validation errors.");
