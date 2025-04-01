@@ -1,6 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import DetailPageImages from "../component/product/DetailPageImages";
-import { useNavigate, useParams } from "react-router";
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router";
 import { Context } from "../App";
 import Cart from ".././assets/images/cart.png";
 
@@ -12,7 +17,11 @@ const Detailpage = () => {
   // console.log("productDetail=======", productDetail?.price);
 
   const { id } = useParams();
-  // console.log(id);
+  console.log("id", id);
+
+  const location = useLocation();
+  const name = location.search.split("?")[1];
+  console.log("location", name);
 
   const navigate = useNavigate();
 
@@ -21,7 +30,7 @@ const Detailpage = () => {
   }, []);
 
   const fetchFunction = async () => {
-    const fetchData = await fetch(`http://localhost:3000/product/${id}`);
+    const fetchData = await fetch(`http://localhost:3000/${name}/${id}`);
     const result = await fetchData.json();
     setProductDetail(result);
 

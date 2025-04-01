@@ -2,10 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router";
 
 const ProductCard = ({ data }) => {
+  // console.log("data", data);
+
   const navigate = useNavigate();
 
   const productHandler = () => {
-    navigate(`/detailpage/${data.id}`);
+     navigate({ pathname: `/detailpage/${data.id}`,search:data.type});
   };
 
   return (
